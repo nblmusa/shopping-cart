@@ -1,4 +1,4 @@
-# shopping-cart-api
+# Shopping Cart API
 
 A basic RESTful shopping cart API
 
@@ -17,10 +17,10 @@ $ ./init
 #### TEST
 ```bash
 # unit tests
-$ docker exec -it nest yarn test
+$ docker exec -it shopping-cart-api yarn test
 
 # test coverage
-$ docker exec -it nest yarn test:cov
+$ docker exec -it shopping-cart-api yarn test:cov
 ```
 
 #### API ROUTES
