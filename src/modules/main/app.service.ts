@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import {ConfigService} from "../config";
+import { ConfigService } from '../config';
 
 @Injectable()
 export class AppService {
@@ -8,7 +8,7 @@ export class AppService {
   root() {
     return {
       message: 'Welcome to Shopping Cart API',
-      url: this.config.get('APP_URL')
-    }
+      url: this.config.get('APP_URL'),
+    };
   }
 }

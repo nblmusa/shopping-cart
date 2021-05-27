@@ -12,7 +12,7 @@ describe('CategoriesController', () => {
   const mockCategories: Category[] = [
     { id: '1', name: 'food', description: 'test' },
     { id: '2', name: 'clothing', description: 'test' },
-  ]
+  ];
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -40,12 +40,11 @@ describe('CategoriesController', () => {
 
   describe('findAll', () => {
     it('should return an array of categories', async () => {
-      
       const result = {
         items: [...mockCategories],
-        totalCount: mockCategories.length
-      }
-      
+        totalCount: mockCategories.length,
+      };
+
       expect(await controller.findAll()).toEqual(result);
     });
   });

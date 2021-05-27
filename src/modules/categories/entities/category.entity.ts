@@ -1,22 +1,29 @@
-import { Column, CreateDateColumn, Entity, Index, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  Index,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity({
-    name: 'categories',
+  name: 'categories',
 })
 export class Category {
-    @PrimaryGeneratedColumn('uuid')
-    public id: string
+  @PrimaryGeneratedColumn('uuid')
+  public id: string;
 
-    @Index({ unique: true })
-    @Column({ length: 255 })
-    name: string;
+  @Index({ unique: true })
+  @Column({ length: 255 })
+  name: string;
 
-    @Column({ length: 255 })
-    description: string;
+  @Column({ length: 255 })
+  description: string;
 
-    @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
-    createdAt?: Date
+  @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
+  createdAt?: Date;
 
-    @UpdateDateColumn({ name: 'updated_at', type: 'timestamp' })
-    updatedAt?: Date
+  @UpdateDateColumn({ name: 'updated_at', type: 'timestamp' })
+  updatedAt?: Date;
 }
