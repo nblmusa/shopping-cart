@@ -12,7 +12,7 @@ describe('CategoriesService', () => {
   const mockCategories: Category[] = [
     { id: '1', name: 'food', description: 'test' },
     { id: '2', name: 'clothing', description: 'test' },
-  ]
+  ];
 
   beforeEach(async () => {
     findOne = jest.fn();
@@ -44,23 +44,34 @@ describe('CategoriesService', () => {
   });
 
   describe('when creating category', () => {
-
     describe('with valid details', () => {
-      beforeEach(() => findOne.mockReturnValue(mockCategories[0]))
+      beforeEach(() => findOne.mockReturnValue(mockCategories[0]));
 
       it('should return category object', async () => {
-        const createCategoryDto: CreateCategoryDto = { name: 'food', description: 'test' }
-        jest.spyOn(service, 'getByName').mockImplementation(() => Promise.resolve(null));
-        expect(await service.create(createCategoryDto)).toEqual(mockCategories[0]);
+        const createCategoryDto: CreateCategoryDto = {
+          name: 'food',
+          description: 'test',
+        };
+        jest
+          .spyOn(service, 'getByName')
+          .mockImplementation(() => Promise.resolve(null));
+        expect(await service.create(createCategoryDto)).toEqual(
+          mockCategories[0],
+        );
       });
     });
 
     describe('that already exists', () => {
-      beforeEach(() => findOne.mockReturnValue(undefined))
+      beforeEach(() => findOne.mockReturnValue(undefined));
 
       it('should throw an error', async () => {
-        const createCategoryDto: CreateCategoryDto = { name: 'food', description: 'test' }
-        jest.spyOn(service, 'getByName').mockImplementation(() => Promise.resolve(mockCategories[0]));
+        const createCategoryDto: CreateCategoryDto = {
+          name: 'food',
+          description: 'test',
+        };
+        jest
+          .spyOn(service, 'getByName')
+          .mockImplementation(() => Promise.resolve(mockCategories[0]));
         await expect(service.create(createCategoryDto)).rejects.toThrowError();
       });
     });
@@ -70,15 +81,14 @@ describe('CategoriesService', () => {
     it('should return list of category object', async () => {
       expect(await service.findAll()).toEqual({
         items: mockCategories,
-        totalCount: mockCategories.length
+        totalCount: mockCategories.length,
       });
     });
   });
 
   describe('when getting category details', () => {
-
     describe('that exists', () => {
-      beforeEach(() => findOne.mockReturnValue(mockCategories[0]))
+      beforeEach(() => findOne.mockReturnValue(mockCategories[0]));
 
       it('should return category object', async () => {
         expect(await service.findOne('1')).toEqual(mockCategories[0]);
@@ -86,7 +96,7 @@ describe('CategoriesService', () => {
     });
 
     describe('that does not exist', () => {
-      beforeEach(() => findOne.mockReturnValue(undefined))
+      beforeEach(() => findOne.mockReturnValue(undefined));
 
       it('should throw an error', async () => {
         await expect(service.findOne('3')).rejects.toThrowError();
@@ -95,29 +105,32 @@ describe('CategoriesService', () => {
   });
 
   describe('when updating category details', () => {
-
     describe('that exists', () => {
       beforeEach(() => {
         findOne.mockReturnValue({ ...mockCategories[0], name: 'test' });
       });
 
       it('should return updated category object', async () => {
-        const result = await service.update('1', { name: 'test' } as UpdateCategoryDto);
+        const result = await service.update('1', {
+          name: 'test',
+        } as UpdateCategoryDto);
         expect(typeof result).toEqual('object');
       });
     });
 
     describe('that does not exist', () => {
-      beforeEach(() => findOne.mockReturnValue(undefined))
+      beforeEach(() => findOne.mockReturnValue(undefined));
 
       it('should throw an error', async () => {
-        await expect(service.update('3', { name: 'test' } as UpdateCategoryDto)).rejects.toThrowError();
+        await expect(
+          service.update('3', { name: 'test' } as UpdateCategoryDto),
+        ).rejects.toThrowError();
       });
     });
   });
 
   describe('when removing a category', () => {
-    beforeEach(() => findOne.mockReturnValue(mockCategories[0]))
+    beforeEach(() => findOne.mockReturnValue(mockCategories[0]));
 
     describe('that exists', () => {
       it('should return removed object', async () => {
@@ -127,7 +140,7 @@ describe('CategoriesService', () => {
     });
 
     describe('that does not exist', () => {
-      beforeEach(() => findOne.mockReturnValue(undefined))
+      beforeEach(() => findOne.mockReturnValue(undefined));
 
       it('should throw an error', async () => {
         await expect(service.remove('3')).rejects.toThrowError();
@@ -136,7 +149,7 @@ describe('CategoriesService', () => {
   });
 
   describe('getByName', () => {
-    beforeEach(() => findOne.mockReturnValue({}))
+    beforeEach(() => findOne.mockReturnValue({}));
 
     it('should return an object', async () => {
       const result = await service.getByName('test');

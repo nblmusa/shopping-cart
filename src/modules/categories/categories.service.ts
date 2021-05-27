@@ -1,4 +1,8 @@
-import { Injectable, NotAcceptableException, NotFoundException } from '@nestjs/common';
+import {
+  Injectable,
+  NotAcceptableException,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateCategoryDto } from './dto/create-category.dto';
@@ -10,7 +14,7 @@ export class CategoriesService {
   constructor(
     @InjectRepository(Category)
     private categoriesRepository: Repository<Category>,
-  ) { }
+  ) {}
 
   async getByName(name: string) {
     return await this.categoriesRepository
@@ -27,15 +31,16 @@ export class CategoriesService {
       throw new NotAcceptableException('Category already exists.');
     }
 
-    return await this.categoriesRepository.save(this.categoriesRepository.create(createCategoryDto));
+    return await this.categoriesRepository.save(
+      this.categoriesRepository.create(createCategoryDto),
+    );
   }
 
-  async findAll(): Promise<{totalCount: number, items: Category[]}> {
-
+  async findAll(): Promise<{ totalCount: number; items: Category[] }> {
     return {
       totalCount: await this.categoriesRepository.count(),
-      items: await this.categoriesRepository.find()
-    }
+      items: await this.categoriesRepository.find(),
+    };
   }
 
   async findOne(id: string): Promise<Category> {
@@ -55,7 +60,7 @@ export class CategoriesService {
       throw new NotFoundException('Category not found.');
     }
 
-    for(const field in updateCategoryDto) {
+    for (const field in updateCategoryDto) {
       category[field] = updateCategoryDto[field];
     }
 

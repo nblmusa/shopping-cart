@@ -1,5 +1,5 @@
 import { INestApplication } from '@nestjs/common';
-import {DocumentBuilder, SwaggerModule} from "@nestjs/swagger";
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 export const SWAGGER_API_ROOT = 'api/docs';
 export const SWAGGER_API_NAME = 'Shopping Cart';
