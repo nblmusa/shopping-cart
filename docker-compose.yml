@@ -1,0 +1,28 @@
+version: "2"
+services:
+  shopping-cart-api:
+    build: .
+    container_name: shopping-cart-api
+    depends_on:
+      - shopping-cart-db
+    volumes:
+      - ./src:/app/src
+      - .env:/app/.env
+    ports:
+      - 3000:3000
+
+  shopping-cart-db:
+    image: mysql:5.7
+    container_name: shopping-cart-db
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - 3306:3306
+    volumes:
+      - cart_mysqldbdata:/var/lib/mysql
+
+volumes:
+  cart_mysqldbdata:
