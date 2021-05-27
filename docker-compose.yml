@@ -22,7 +22,7 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - cart_mysqldbdata:/var/lib/mysql
+      - mysqldbdata:/var/lib/mysql
 
 volumes:
-  cart_mysqldbdata:
+  mysqldbdata:
