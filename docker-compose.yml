@@ -9,7 +9,7 @@ services:
       - ./src:/app/src
       - .env:/app/.env
     ports:
-      - ${APP_PORT}:${APP_PORT}
+      - ${APP_PORT}:3000
 
   shopping-cart-db:
     image: mysql:5.7
@@ -20,7 +20,7 @@ services:
       MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
     ports:
-      - ${DB_PORT}:${DB_PORT}
+      - ${DB_PORT}:3306
     volumes:
       - mysqldbdata:/var/lib/mysql
 
