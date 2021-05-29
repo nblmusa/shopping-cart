@@ -6,6 +6,10 @@ A basic RESTful shopping cart API
 
 - Simple REST API built in NestJS and MySQL
 
+#### ASSUMPTIONS
+
+- User
+
 #### PREREQUISITES
 - Docker / Docker Compose
 
@@ -44,3 +48,12 @@ Find the details of the API routes defined in Swagger accessible at http://local
 | [`GET /products/:productId`](#get-product-details)| Get details of a product |    
 | [`PATCH /products/:productId`](#update-product) | Update the details of a product |
 | [`DELETE /products/:productId`](#delete-product) |Delete a product |
+
+### [Carts Routes](#carts-routes)
+| Routes        | Description   | 
+|:------------- |:-------------|
+| [`POST /cart/items`](#create-new-cart)     | Add product to cart |  
+| [`GET /cart/items`](#get-cart-items)    | List of cart items of a user |   
+| [`PATCH /cart/items/:productId`](#update-cart-items) | Update cart item |
+| [`DELETE /cart/items/:productid`](#remove-cart-item) | Remove items from cart |
+| [`DELETE /cart/items`](#clear-cart) | Remove all items from cart |
