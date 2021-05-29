@@ -4,11 +4,11 @@ A basic RESTful shopping cart API
 
 #### DESCRIPTION
 
-- Simple REST API built in NestJS and MySQL
+- Simple REST API built in NestJS and MySQL.
 
 #### ASSUMPTIONS
 
-- Users are registered and stored in database. There are 2 users available, an admin and a customer.
+- This project assumes that users are already registered, stored in the database and logged in. There are 2 users available, an admin and a customer.
 The following JWT tokens can be used as a bearer authentication:
 Admin:
 ```bash
@@ -19,8 +19,23 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNhMmIxMmE0LTE1MDQtNGEyMC1iYTIxLWZ
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRkMDlkYWY2LWYyNzYtNGQ0My1hNmE2LTNhZjg0NGIyOTZmZSIsImlhdCI6MTYyMjMxOTE5MiwiZXhwIjoxNjIyOTIzOTkyfQ.4HQH5lnrTISvJxzY2OjLo8j0FXocEO-heB2IntefptE
 ```
 
+- Also, checking out cart and placing and order is not within the scope of this project.
+
+
 #### PREREQUISITES
 - Docker / Docker Compose
+
+
+#### TECHNOLOGIES
+- Docker
+- NestJS framework
+- MySQL
+- TypeORM
+
+
+#### DEPENDENCIES
+
+For the dependencies, refer to package.json for the full list
 
 #### INSTALLATION GUIDE
 ```bash
