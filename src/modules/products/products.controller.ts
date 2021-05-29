@@ -17,7 +17,7 @@ import { Roles } from '../auth/roles.decorator';
 import { JwtAuthGuard } from '../auth/jwt.guard';
 import { RolesGuard } from '../auth/roles.guard';
 
-@Controller('api/products')
+@Controller('api/v1/products')
 @ApiTags('products')
 export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
