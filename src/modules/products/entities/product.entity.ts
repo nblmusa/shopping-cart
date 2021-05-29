@@ -47,4 +47,9 @@ export class Product {
 
   @UpdateDateColumn({ name: 'updated_at', type: 'timestamp' })
   updatedAt?: Date;
+
+  toJSON() {
+    const { createdAt, updatedAt, ...self } = this;
+    return self;
+  }
 }

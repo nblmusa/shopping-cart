@@ -8,15 +8,21 @@ import { Repository } from 'typeorm';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
 import { Category } from './entities/category.entity';
+import { ProductsService } from '../products/products.service';
 
 @Injectable()
 export class CategoriesService {
   constructor(
     @InjectRepository(Category)
     private categoriesRepository: Repository<Category>,
+    private productsService: ProductsService,
   ) {}
 
-  async getByName(name: string) {
+  /**
+   * Search for a category by name
+   * @param name
+   */
+  async getByName(name: string): Promise<Category> {
     return await this.categoriesRepository
       .createQueryBuilder('categories')
       .where('categories.name = :name')
@@ -24,6 +30,10 @@ export class CategoriesService {
       .getOne();
   }
 
+  /**
+   * Add a category
+   * @param createCategoryDto
+   */
   async create(createCategoryDto: CreateCategoryDto) {
     const category = await this.getByName(createCategoryDto.name);
 
@@ -36,6 +46,9 @@ export class CategoriesService {
     );
   }
 
+  /**
+   * Retrieve all categories
+   */
   async findAll(): Promise<{ totalCount: number; items: Category[] }> {
     return {
       totalCount: await this.categoriesRepository.count(),
@@ -43,6 +56,10 @@ export class CategoriesService {
     };
   }
 
+  /**
+   * Retrieve a specific category
+   * @param id
+   */
   async findOne(id: string): Promise<Category> {
     const category = await this.categoriesRepository.findOne(id);
 
@@ -53,7 +70,12 @@ export class CategoriesService {
     return category;
   }
 
-  async update(id: string, updateCategoryDto: UpdateCategoryDto) {
+  /**
+   * Update a specific category
+   * @param id
+   * @param updateCategoryDto
+   */
+  async update(id: string, updateCategoryDto: UpdateCategoryDto): Promise<Category> {
     const category = await this.categoriesRepository.findOne(id);
 
     if (!category) {
@@ -67,14 +89,23 @@ export class CategoriesService {
     return await this.categoriesRepository.save(category);
   }
 
-  async remove(id: string) {
+  /**
+   * Remove a specific category
+   * @param id
+   */
+  async remove(id: string): Promise<Category> {
     const category = await this.categoriesRepository.findOne(id);
 
     if (!category) {
       throw new NotFoundException('Category not found.');
     }
 
-    // TODO: check if there is product with category before removing
+    // Check if category is currently used
+    if (await this.productsService.getByCategoryId(id)) {
+      throw new NotAcceptableException(
+        'There are products currently assigned to this category.',
+      );
+    }
 
     await this.categoriesRepository.delete(id);
     return category;
