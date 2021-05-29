@@ -8,7 +8,16 @@ A basic RESTful shopping cart API
 
 #### ASSUMPTIONS
 
-- User
+- Users are registered and stored in database. There are 2 users available, an admin and a customer.
+The following JWT tokens can be used as a bearer authentication:
+Admin:
+```bash
+# Admin:
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNhMmIxMmE0LTE1MDQtNGEyMC1iYTIxLWZhYjBmZjEzZjNmOCIsImlhdCI6MTYyMjMxOTI2MSwiZXhwIjoxNjIyOTI0MDYxfQ.Is-w3T654uJmHJuXLV5MyAoe14F-hLAv9FhVr-D_6W0
+
+# Customer:
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRkMDlkYWY2LWYyNzYtNGQ0My1hNmE2LTNhZjg0NGIyOTZmZSIsImlhdCI6MTYyMjMxOTE5MiwiZXhwIjoxNjIyOTIzOTkyfQ.4HQH5lnrTISvJxzY2OjLo8j0FXocEO-heB2IntefptE
+```
 
 #### PREREQUISITES
 - Docker / Docker Compose
@@ -27,33 +36,41 @@ $ docker exec -it shopping-cart-api yarn test
 $ docker exec -it shopping-cart-api yarn test:cov
 ```
 
-#### API ROUTES
+#### SWAGGER
+Find the details of the API routes defined in Swagger accessible at http://localhost/api/v1/docs
 
-Find the details of the API routes defined in Swagger accessible at http://localhost/api/docs
+#### POSTMAN
+Postman collection can be found in the postman directory of this repo.
+
+#### API ROUTES
 
 ### [Product Category Routes](#category-routes)
 | Routes        | Description  | 
 |:------------- |:-------------|
-| [`POST /categories/`](#create-new-category)     | Create a new category |  
-| [`GET /categories/`](#get-all-category)    |Get list of all categories|   
-| [`GET /categories/:categoryId`](#get-category)| Get category details |    
-| [`PATCH /categories/:categoryId`](#update-category) | Update the details of a category |
-| [`DELETE /categories/:categoryId`](#delete-category) |Delete category |
+| [`POST /api/v1/categories/`](#create-new-category)     | Create a new category |  
+| [`GET /api/v1/categories/`](#get-all-category)    |Get list of all categories|   
+| [`GET /api/v1/categories/:categoryId`](#get-category)| Get category details |    
+| [`PATCH /api/v1/categories/:categoryId`](#update-category) | Update the details of a category |
+| [`DELETE /api/v1/categories/:categoryId`](#delete-category) |Delete category |
 
 ### [Products Routes](#product-routes)
 | Routes        | Description   | 
 |:------------- |:-------------|
-| [`POST /products/`](#create-new-product)     | Create a new product |  
-| [`GET /products/`](#get-all-products)    |Get list of all products|   
-| [`GET /products/:productId`](#get-product-details)| Get details of a product |    
-| [`PATCH /products/:productId`](#update-product) | Update the details of a product |
-| [`DELETE /products/:productId`](#delete-product) |Delete a product |
+| [`POST /api/v1/products/`](#create-new-product)     | Create a new product |  
+| [`GET /api/v1/products/`](#get-all-products)    |Get list of all products|   
+| [`GET /api/v1/products/:productId`](#get-product-details)| Get details of a product |    
+| [`PATCH /api/v1/products/:productId`](#update-product) | Update the details of a product |
+| [`DELETE /api/v1/products/:productId`](#delete-product) |Delete a product |
 
 ### [Carts Routes](#carts-routes)
 | Routes        | Description   | 
 |:------------- |:-------------|
-| [`POST /cart/items`](#create-new-cart)     | Add product to cart |  
-| [`GET /cart/items`](#get-cart-items)    | List of cart items of a user |   
-| [`PATCH /cart/items/:productId`](#update-cart-items) | Update cart item |
-| [`DELETE /cart/items/:productid`](#remove-cart-item) | Remove items from cart |
-| [`DELETE /cart/items`](#clear-cart) | Remove all items from cart |
+| [`POST /api/v1/cart/items`](#create-new-cart)     | Add product to cart |  
+| [`GET /api/v1/cart/items`](#get-cart-items)    | List of cart items of a user |   
+| [`PATCH /api/v1/cart/items/:productId`](#update-cart-items) | Update cart item |
+| [`DELETE /api/v1/cart/items/:productid`](#remove-cart-item) | Remove items from cart |
+| [`DELETE /api/v1/cart/items`](#clear-cart) | Remove all items from cart |
+
+
+### Future Road map
+- 
