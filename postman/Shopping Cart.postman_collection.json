@@ -1,0 +1,520 @@
+{
+	"info": {
+		"_postman_id": "041e43f6-a6d7-4872-8ce7-dd57a06bc707",
+		"name": "Shopping Cart",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "Create a category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNhMmIxMmE0LTE1MDQtNGEyMC1iYTIxLWZhYjBmZjEzZjNmOCIsImlhdCI6MTYyMjMxOTI2MSwiZXhwIjoxNjIyOTI0MDYxfQ.Is-w3T654uJmHJuXLV5MyAoe14F-hLAv9FhVr-D_6W0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Food\",\n    \"description\": \"Groceries\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{CART_URL}}/api/v1/categories",
+							"host": [
+								"{{CART_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create a category",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Food\",\n    \"description\": \"Groceries\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{CART_URL}}/api/categories",
+									"host": [
+										"{{CART_URL}}"
+									],
+									"path": [
+										"api",
+										"categories"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-hGShxOkieaAVDloBubJVM+h58D8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 May 2021 10:28:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 401,\n    \"message\": \"Unauthorized\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get list of all categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{CART_URL}}/api/v1/categories",
+							"host": [
+								"{{CART_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get category details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{CART_URL}}/api/v1/categories/6ffa97fe-e86b-4112-8204-253a8388a80c",
+							"host": [
+								"{{CART_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"6ffa97fe-e86b-4112-8204-253a8388a80c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a category",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"test\",\n    \"id\": \"hello\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{CART_URL}}/api/v1/categories/16ce2928-d970-4c0d-8e29-7a6ee1db9482",
+							"host": [
+								"{{CART_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"16ce2928-d970-4c0d-8e29-7a6ee1db9482"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove a category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{CART_URL}}/api/v1/categories/16ce2928-d970-4c0d-8e29-7a6ee1db9482",
+							"host": [
+								"{{CART_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"16ce2928-d970-4c0d-8e29-7a6ee1db9482"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Create a product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Apple\",\n  \"description\": \"Pink lady apple\",\n  \"categoryId\": \"6ffa97fe-e86b-4112-8204-253a8388a80c\",\n  \"sellingPrice\": 200,\n  \"stockLevel\": 100,\n  \"expirationDate\": \"2022-06-07\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{CART_URL}}/api/v1/products",
+							"host": [
+								"{{CART_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get list of all products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{CART_URL}}/api/products",
+							"host": [
+								"{{CART_URL}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get product details",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{CART_URL}}/api/v1/products/2d6ad000-1180-42f9-9caa-185adf669d24",
+							"host": [
+								"{{CART_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"2d6ad000-1180-42f9-9caa-185adf669d24"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a product",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"expirationDate\": \"2021/07/08\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{CART_URL}}/api/v1/products/2d6ad000-1180-42f9-9caa-185adf669d24",
+							"host": [
+								"{{CART_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"2d6ad000-1180-42f9-9caa-185adf669d24"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove a product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{CART_URL}}/api/v1/products/2d6ad000-1180-42f9-9caa-185adf669d24",
+							"host": [
+								"{{CART_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"2d6ad000-1180-42f9-9caa-185adf669d24"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "carts",
+			"item": [
+				{
+					"name": "Add product to cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNhMmIxMmE0LTE1MDQtNGEyMC1iYTIxLWZhYjBmZjEzZjNmOCIsImlhdCI6MTYyMjI4NjIzOCwiZXhwIjoxNjIyODkxMDM4fQ.roP87c-WDwcgyGMrjEE-R45XPP9A9InopnuWOp4FKh8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productId\": \"c55ff671-2dc3-4e21-aab9-2e96b0934585\",\n    \"quantity\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{CART_URL}}/api/v1/cart/items",
+							"host": [
+								"{{CART_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cart",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List cart items",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNhMmIxMmE0LTE1MDQtNGEyMC1iYTIxLWZhYjBmZjEzZjNmOCIsImlhdCI6MTYyMjI4NjIzOCwiZXhwIjoxNjIyODkxMDM4fQ.roP87c-WDwcgyGMrjEE-R45XPP9A9InopnuWOp4FKh8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{CART_URL}}/api/v1/cart/items",
+							"host": [
+								"{{CART_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cart",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update product in cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNhMmIxMmE0LTE1MDQtNGEyMC1iYTIxLWZhYjBmZjEzZjNmOCIsImlhdCI6MTYyMjI4NjIzOCwiZXhwIjoxNjIyODkxMDM4fQ.roP87c-WDwcgyGMrjEE-R45XPP9A9InopnuWOp4FKh8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quantity\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{CART_URL}}/api/v1/cart/items/c55ff671-2dc3-4e21-aab9-2e96b0934585",
+							"host": [
+								"{{CART_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cart",
+								"items",
+								"c55ff671-2dc3-4e21-aab9-2e96b0934585"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove a product from cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNhMmIxMmE0LTE1MDQtNGEyMC1iYTIxLWZhYjBmZjEzZjNmOCIsImlhdCI6MTYyMjI4NjIzOCwiZXhwIjoxNjIyODkxMDM4fQ.roP87c-WDwcgyGMrjEE-R45XPP9A9InopnuWOp4FKh8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{CART_URL}}/api/v1/cart/items/c55ff671-2dc3-4e21-aab9-2e96b0934585",
+							"host": [
+								"{{CART_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cart",
+								"items",
+								"c55ff671-2dc3-4e21-aab9-2e96b0934585"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clear cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNhMmIxMmE0LTE1MDQtNGEyMC1iYTIxLWZhYjBmZjEzZjNmOCIsImlhdCI6MTYyMjI4NjIzOCwiZXhwIjoxNjIyODkxMDM4fQ.roP87c-WDwcgyGMrjEE-R45XPP9A9InopnuWOp4FKh8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{CART_URL}}/api/v1/cart/items",
+							"host": [
+								"{{CART_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cart",
+								"items"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
