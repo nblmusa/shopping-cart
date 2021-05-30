@@ -11,9 +11,9 @@ A basic RESTful shopping cart API
 
 #### ASSUMPTIONS
 
-- This project assumes that users are already registered, stored in the database and logged in. There are 2 users available, an admin and a customer.
-The JWT can be found in the postman environtment config files or the following tokens can be used as a bearer authentication:
-Admin:
+- This project assumes that users are already registered and stored in the database. There are 2 users available, an admin and a customer.
+The JWT can be found in the postman environtment files or the following tokens can be used as a bearer authentication:
+
 ```bash
 # Admin:
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNhMmIxMmE0LTE1MDQtNGEyMC1iYTIxLWZhYjBmZjEzZjNmOCIsImlhdCI6MTYyMjM4OTYxMCwiZXhwIjoxNjUzOTI1NjEwfQ.W-MGyIdwdtzThbMhpGB4wzJ3iP8K_MVLprGln-qbCrc
@@ -46,7 +46,7 @@ For the dependencies, refer to package.json for the full list
 $ ./init
 ```
 
-To populate test users into db:
+And populate users into db:
 ```bash
 $ ./scripts/populate-db.sh
 ```
