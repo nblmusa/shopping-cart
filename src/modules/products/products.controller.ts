@@ -11,7 +11,7 @@ import {
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
-import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
+import {ApiBearerAuth, ApiOperation, ApiResponse, ApiTags} from '@nestjs/swagger';
 import { Product } from './entities/product.entity';
 import { Roles } from '../auth/roles.decorator';
 import { JwtAuthGuard } from '../auth/jwt.guard';
@@ -30,6 +30,7 @@ export class ProductsController {
   @ApiBearerAuth()
   @Roles('admin')
   @UseGuards(JwtAuthGuard, RolesGuard)
+  @ApiOperation({ summary: 'Create product' })
   @ApiResponse({ status: 201, description: 'Product Created' })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
@@ -45,6 +46,7 @@ export class ProductsController {
    * Retrieve all products
    */
   @Get()
+  @ApiOperation({ summary: 'Retrieve all products' })
   @ApiResponse({ status: 200, description: 'Successful Response' })
   async findAll(): Promise<{ totalCount: number; items: Product[] }> {
     return await this.productsService.findAll();
@@ -55,6 +57,7 @@ export class ProductsController {
    * @param id
    */
   @Get(':id')
+  @ApiOperation({ summary: 'Retrieve a specific product' })
   @ApiResponse({ status: 200, description: 'Successful Response' })
   @ApiResponse({ status: 404, description: 'Product Not Found' })
   findOne(@Param('id') id: string): Promise<Product> {
@@ -70,6 +73,7 @@ export class ProductsController {
   @ApiBearerAuth()
   @Roles('admin')
   @UseGuards(JwtAuthGuard, RolesGuard)
+  @ApiOperation({ summary: 'Update a specific product' })
   @ApiResponse({ status: 200, description: 'Successful Response' })
   @ApiResponse({ status: 404, description: 'Product Not Found' })
   async update(
@@ -88,6 +92,7 @@ export class ProductsController {
   @ApiBearerAuth()
   @Roles('admin')
   @UseGuards(JwtAuthGuard, RolesGuard)
+  @ApiOperation({ summary: 'Remove a specific product' })
   @ApiResponse({ status: 200, description: 'Successful Response' })
   @ApiResponse({ status: 404, description: 'Product Not Found' })
   async remove(@Param('id') id: string): Promise<{ message: string }> {

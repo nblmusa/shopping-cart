@@ -12,8 +12,7 @@ import {
 import { CartsService } from './carts.service';
 import { CreateCartDto } from './dto/create-cart.dto';
 import { UpdateCartDto } from './dto/update-cart.dto';
-import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { AuthGuard } from '@nestjs/passport';
+import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Roles } from '../auth/roles.decorator';
 import { JwtAuthGuard } from '../auth/jwt.guard';
 import { RolesGuard } from '../auth/roles.guard';
@@ -32,6 +31,7 @@ export class CartsController {
    * @param request
    */
   @Post('items')
+  @ApiOperation({ summary: 'Add product to cart' })
   @ApiResponse({ status: 201, description: 'Product Added to Cart' })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
@@ -49,6 +49,7 @@ export class CartsController {
    * @param request
    */
   @Get('items')
+  @ApiOperation({ summary: 'List all products in user\'s cart' })
   @ApiResponse({ status: 200, description: 'Successful Response' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   @ApiResponse({
@@ -66,6 +67,7 @@ export class CartsController {
    * @param request
    */
   @Patch('items/:id')
+  @ApiOperation({ summary: 'Update cart (e.g: increase / decrease quantity' })
   @ApiResponse({ status: 200, description: 'Successful Response' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   @ApiResponse({ status: 404, description: 'Product Not in Cart' })
@@ -84,6 +86,7 @@ export class CartsController {
    * @param {Request} request
    */
   @Delete('items/:id')
+  @ApiOperation({ summary: 'Remove product from user\'s cart' })
   @ApiResponse({ status: 200, description: 'Successful Response' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   @ApiResponse({ status: 404, description: 'Product Not Found' })
@@ -100,6 +103,7 @@ export class CartsController {
    * @param request
    */
   @Delete('items')
+  @ApiOperation({ summary: 'Clear user\'s cart' })
   @ApiResponse({ status: 200, description: 'Successful Response' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   async clearCartItems(@Request() request): Promise<{ message: string }> {

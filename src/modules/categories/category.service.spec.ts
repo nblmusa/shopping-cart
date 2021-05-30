@@ -4,9 +4,12 @@ import { CategoriesService } from './categories.service';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
 import { Category } from './entities/category.entity';
+import {ProductsService} from "../products/products.service";
+import {Product} from "../products/entities/product.entity";
 
 describe('CategoriesService', () => {
   let service: CategoriesService;
+  let productService: ProductsService;
   let findOne: jest.Mock;
 
   const mockCategories: Category[] = [
@@ -25,6 +28,7 @@ describe('CategoriesService', () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         CategoriesService,
+        ProductsService,
         {
           provide: getRepositoryToken(Category),
           useValue: {
@@ -37,10 +41,19 @@ describe('CategoriesService', () => {
             findOne,
           },
         },
+        {
+          provide: getRepositoryToken(Product),
+          useValue: {
+            save: jest.fn().mockResolvedValue(mockCategories[0]),
+            find: jest.fn().mockResolvedValue([]),
+            count: jest.fn().mockResolvedValue(mockCategories.length),
+          },
+        },
       ],
     }).compile();
 
     service = module.get<CategoriesService>(CategoriesService);
+    productService = module.get<ProductsService>(ProductsService);
   });
 
   describe('when creating category', () => {
@@ -132,10 +145,20 @@ describe('CategoriesService', () => {
   describe('when removing a category', () => {
     beforeEach(() => findOne.mockReturnValue(mockCategories[0]));
 
-    describe('that exists', () => {
+    describe('that exists and not assigned to any product', () => {
       it('should return removed object', async () => {
+        jest
+            .spyOn(productService, 'getByCategoryId')
+            .mockImplementation(() => Promise.resolve(undefined));
+
         const result = await service.remove('1');
         expect(typeof result).toEqual('object');
+      });
+    });
+
+    describe('that exists and assigned to a product', () => {
+      it('should throw an error', async () => {
+        await (expect(service.remove('1')).rejects.toThrowError());
       });
     });
 

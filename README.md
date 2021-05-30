@@ -57,7 +57,7 @@ $ docker exec -it shopping-cart-api yarn test:cov
 ```
 
 #### SWAGGER
-Find the details of the API routes defined in Swagger accessible at http://localhost/api/v1/docs
+Find the details of the API routes defined in Swagger accessible at http://localhost:3000/api/v1/docs
 
 #### POSTMAN
 Postman collection can be found in the postman directory of this repo.
