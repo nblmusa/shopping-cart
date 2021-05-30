@@ -42,6 +42,11 @@ For the dependencies, refer to package.json for the full list
 $ ./init
 ```
 
+To populate test users into db:
+```bash
+$ ./scripts/populate-db.sh
+```
+
 #### TEST
 ```bash
 # unit tests
