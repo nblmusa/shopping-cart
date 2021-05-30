@@ -34,6 +34,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRkMDlkYWY2LWYyNzYtNGQ0My1hNmE2LTN
 - NestJS framework
 - MySQL
 - TypeORM
+- Adminer
 
 
 #### DEPENDENCIES
@@ -49,6 +50,11 @@ To populate test users into db:
 ```bash
 $ ./scripts/populate-db.sh
 ```
+
+#### PORTS USED
+- API: 3000
+- MySQL: 3306
+- Adminer: 8080
 
 #### TEST
 ```bash
