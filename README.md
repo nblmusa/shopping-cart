@@ -9,7 +9,7 @@ A basic RESTful shopping cart API
 #### ASSUMPTIONS
 
 - This project assumes that users are already registered, stored in the database and logged in. There are 2 users available, an admin and a customer.
-The following JWT tokens can be used as a bearer authentication:
+The JWT can be found in the postman environtment config files or the following tokens can be used as a bearer authentication:
 Admin:
 ```bash
 # Admin:

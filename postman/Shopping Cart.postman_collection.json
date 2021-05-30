@@ -11,16 +11,6 @@
 				{
 					"name": "Create a category",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNhMmIxMmE0LTE1MDQtNGEyMC1iYTIxLWZhYjBmZjEzZjNmOCIsImlhdCI6MTYyMjMxOTI2MSwiZXhwIjoxNjIyOTI0MDYxfQ.Is-w3T654uJmHJuXLV5MyAoe14F-hLAv9FhVr-D_6W0",
-									"type": "string"
-								}
-							]
-						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -137,7 +127,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{CART_URL}}/api/v1/categories/6ffa97fe-e86b-4112-8204-253a8388a80c",
+							"raw": "{{CART_URL}}/api/v1/categories/f6d3dba0-ab8b-4d05-a5d7-01836f12bd15",
 							"host": [
 								"{{CART_URL}}"
 							],
@@ -145,7 +135,7 @@
 								"api",
 								"v1",
 								"categories",
-								"6ffa97fe-e86b-4112-8204-253a8388a80c"
+								"f6d3dba0-ab8b-4d05-a5d7-01836f12bd15"
 							]
 						}
 					},
@@ -166,7 +156,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{CART_URL}}/api/v1/categories/16ce2928-d970-4c0d-8e29-7a6ee1db9482",
+							"raw": "{{CART_URL}}/api/v1/categories/f6d3dba0-ab8b-4d05-a5d7-01836f12bd15",
 							"host": [
 								"{{CART_URL}}"
 							],
@@ -174,7 +164,7 @@
 								"api",
 								"v1",
 								"categories",
-								"16ce2928-d970-4c0d-8e29-7a6ee1db9482"
+								"f6d3dba0-ab8b-4d05-a5d7-01836f12bd15"
 							]
 						}
 					},
@@ -186,7 +176,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{CART_URL}}/api/v1/categories/16ce2928-d970-4c0d-8e29-7a6ee1db9482",
+							"raw": "{{CART_URL}}/api/v1/categories/fd829276-b918-400c-a56d-e8fff4ee607f",
 							"host": [
 								"{{CART_URL}}"
 							],
@@ -194,7 +184,7 @@
 								"api",
 								"v1",
 								"categories",
-								"16ce2928-d970-4c0d-8e29-7a6ee1db9482"
+								"fd829276-b918-400c-a56d-e8fff4ee607f"
 							]
 						}
 					},
@@ -212,7 +202,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"Apple\",\n  \"description\": \"Pink lady apple\",\n  \"categoryId\": \"6ffa97fe-e86b-4112-8204-253a8388a80c\",\n  \"sellingPrice\": 200,\n  \"stockLevel\": 100,\n  \"expirationDate\": \"2022-06-07\"\n}",
+							"raw": "{\n  \"name\": \"Apple\",\n  \"description\": \"Pink lady apple\",\n  \"categoryId\": \"fd829276-b918-400c-a56d-e8fff4ee607f\",\n  \"sellingPrice\": 200,\n  \"stockLevel\": 100,\n  \"expirationDate\": \"2022-06-07\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -239,12 +229,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{CART_URL}}/api/products",
+							"raw": "{{CART_URL}}/api/v1/products",
 							"host": [
 								"{{CART_URL}}"
 							],
 							"path": [
 								"api",
+								"v1",
 								"products"
 							]
 						}
@@ -264,7 +255,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{CART_URL}}/api/v1/products/2d6ad000-1180-42f9-9caa-185adf669d24",
+							"raw": "{{CART_URL}}/api/v1/products/d5300c24-816d-45c6-8cba-3058359528cb",
 							"host": [
 								"{{CART_URL}}"
 							],
@@ -272,7 +263,7 @@
 								"api",
 								"v1",
 								"products",
-								"2d6ad000-1180-42f9-9caa-185adf669d24"
+								"d5300c24-816d-45c6-8cba-3058359528cb"
 							]
 						}
 					},
@@ -285,7 +276,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"expirationDate\": \"2021/07/08\"\n}",
+							"raw": "{\n  \"expirationDate\": \"2022/07/08\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -293,7 +284,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{CART_URL}}/api/v1/products/2d6ad000-1180-42f9-9caa-185adf669d24",
+							"raw": "{{CART_URL}}/api/v1/products/d5300c24-816d-45c6-8cba-3058359528cb",
 							"host": [
 								"{{CART_URL}}"
 							],
@@ -301,7 +292,7 @@
 								"api",
 								"v1",
 								"products",
-								"2d6ad000-1180-42f9-9caa-185adf669d24"
+								"d5300c24-816d-45c6-8cba-3058359528cb"
 							]
 						}
 					},
@@ -313,7 +304,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{CART_URL}}/api/v1/products/2d6ad000-1180-42f9-9caa-185adf669d24",
+							"raw": "{{CART_URL}}/api/v1/products/f9c0b79f-c5d6-459e-b687-d45534a7e711",
 							"host": [
 								"{{CART_URL}}"
 							],
@@ -321,7 +312,7 @@
 								"api",
 								"v1",
 								"products",
-								"2d6ad000-1180-42f9-9caa-185adf669d24"
+								"f9c0b79f-c5d6-459e-b687-d45534a7e711"
 							]
 						}
 					},
@@ -335,21 +326,11 @@
 				{
 					"name": "Add product to cart",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNhMmIxMmE0LTE1MDQtNGEyMC1iYTIxLWZhYjBmZjEzZjNmOCIsImlhdCI6MTYyMjI4NjIzOCwiZXhwIjoxNjIyODkxMDM4fQ.roP87c-WDwcgyGMrjEE-R45XPP9A9InopnuWOp4FKh8",
-									"type": "string"
-								}
-							]
-						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"productId\": \"c55ff671-2dc3-4e21-aab9-2e96b0934585\",\n    \"quantity\": 1\n}",
+							"raw": "{\n    \"productId\": \"f9c0b79f-c5d6-459e-b687-d45534a7e711\",\n    \"quantity\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -377,16 +358,6 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNhMmIxMmE0LTE1MDQtNGEyMC1iYTIxLWZhYjBmZjEzZjNmOCIsImlhdCI6MTYyMjI4NjIzOCwiZXhwIjoxNjIyODkxMDM4fQ.roP87c-WDwcgyGMrjEE-R45XPP9A9InopnuWOp4FKh8",
-									"type": "string"
-								}
-							]
-						},
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -416,21 +387,11 @@
 				{
 					"name": "Update product in cart",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNhMmIxMmE0LTE1MDQtNGEyMC1iYTIxLWZhYjBmZjEzZjNmOCIsImlhdCI6MTYyMjI4NjIzOCwiZXhwIjoxNjIyODkxMDM4fQ.roP87c-WDwcgyGMrjEE-R45XPP9A9InopnuWOp4FKh8",
-									"type": "string"
-								}
-							]
-						},
 						"method": "PATCH",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"quantity\": 2\n}",
+							"raw": "{\n    \"quantity\": 3\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -438,7 +399,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{CART_URL}}/api/v1/cart/items/c55ff671-2dc3-4e21-aab9-2e96b0934585",
+							"raw": "{{CART_URL}}/api/v1/cart/items/d5300c24-816d-45c6-8cba-3058359528cb",
 							"host": [
 								"{{CART_URL}}"
 							],
@@ -447,7 +408,7 @@
 								"v1",
 								"cart",
 								"items",
-								"c55ff671-2dc3-4e21-aab9-2e96b0934585"
+								"d5300c24-816d-45c6-8cba-3058359528cb"
 							]
 						}
 					},
@@ -456,20 +417,10 @@
 				{
 					"name": "Remove a product from cart",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNhMmIxMmE0LTE1MDQtNGEyMC1iYTIxLWZhYjBmZjEzZjNmOCIsImlhdCI6MTYyMjI4NjIzOCwiZXhwIjoxNjIyODkxMDM4fQ.roP87c-WDwcgyGMrjEE-R45XPP9A9InopnuWOp4FKh8",
-									"type": "string"
-								}
-							]
-						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{CART_URL}}/api/v1/cart/items/c55ff671-2dc3-4e21-aab9-2e96b0934585",
+							"raw": "{{CART_URL}}/api/v1/cart/items/d5300c24-816d-45c6-8cba-3058359528cb",
 							"host": [
 								"{{CART_URL}}"
 							],
@@ -478,7 +429,7 @@
 								"v1",
 								"cart",
 								"items",
-								"c55ff671-2dc3-4e21-aab9-2e96b0934585"
+								"d5300c24-816d-45c6-8cba-3058359528cb"
 							]
 						}
 					},
@@ -487,16 +438,6 @@
 				{
 					"name": "Clear cart",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNhMmIxMmE0LTE1MDQtNGEyMC1iYTIxLWZhYjBmZjEzZjNmOCIsImlhdCI6MTYyMjI4NjIzOCwiZXhwIjoxNjIyODkxMDM4fQ.roP87c-WDwcgyGMrjEE-R45XPP9A9InopnuWOp4FKh8",
-									"type": "string"
-								}
-							]
-						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
@@ -515,6 +456,36 @@
 					"response": []
 				}
 			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{TOKEN}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
