@@ -51,7 +51,7 @@ export class ProductsService {
    * Get all products in a category
    * @param categoryId
    */
-  async getByCategoryId(categoryId: string): Promise<Product[]> {
+  async getAllByCategoryId(categoryId: string): Promise<Product[]> {
     return await this.productsRepository.find({ categoryId });
   }
 

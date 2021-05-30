@@ -5,8 +5,8 @@ import { UserRole } from './user-role.enum';
   name: 'users',
 })
 export class User {
-  @PrimaryGeneratedColumn()
-  id: number;
+  @PrimaryGeneratedColumn('uuid')
+  public id: string;
 
   @Column({ length: 255 })
   firstName: string;
@@ -28,7 +28,7 @@ export class User {
   @Column({ name: 'password', length: 255 })
   password: string;
 
-  toJSON() {
+  toJSON?() {
     const { password, ...self } = this;
     return self;
   }

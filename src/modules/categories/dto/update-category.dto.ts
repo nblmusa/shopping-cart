@@ -7,7 +7,7 @@ export class UpdateCategoryDto {
   @Length(3, 255)
   name?: string;
 
-  @ApiProperty({ required: false, example: 'Children\'s wear' })
+  @ApiProperty({ required: false, example: "Children's wear" })
   @IsOptional()
   @Length(3, 255)
   description?: string;

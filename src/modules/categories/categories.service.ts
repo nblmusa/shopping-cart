@@ -9,7 +9,7 @@ import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
 import { Category } from './entities/category.entity';
 import { ProductsService } from '../products/products.service';
-import {Product} from "../products/entities/product.entity";
+import { Product } from '../products/entities/product.entity';
 
 @Injectable()
 export class CategoriesService {
@@ -76,7 +76,10 @@ export class CategoriesService {
    * @param id
    * @param updateCategoryDto
    */
-  async update(id: string, updateCategoryDto: UpdateCategoryDto): Promise<Category> {
+  async update(
+    id: string,
+    updateCategoryDto: UpdateCategoryDto,
+  ): Promise<Category> {
     const category = await this.categoriesRepository.findOne(id);
 
     if (!category) {
@@ -102,10 +105,14 @@ export class CategoriesService {
     }
 
     // Check if category is currently used
-    const products: Product[] = await this.productsService.getByCategoryId(id);
+    const products: Product[] = await this.productsService.getAllByCategoryId(
+      id,
+    );
 
     if (products.length) {
-      throw new NotAcceptableException('There are products currently assigned to this category.',);
+      throw new NotAcceptableException(
+        'There are products currently assigned to this category.',
+      );
     }
 
     await this.categoriesRepository.delete(id);

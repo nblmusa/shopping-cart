@@ -4,12 +4,13 @@ import { CategoriesService } from './categories.service';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
 import { Category } from './entities/category.entity';
-import {ProductsService} from "../products/products.service";
-import {Product} from "../products/entities/product.entity";
+import { ProductsService } from '../products/products.service';
+import { Product } from '../products/entities/product.entity';
+import { Cart } from '../carts/entities/cart.entity';
 
 describe('CategoriesService', () => {
   let service: CategoriesService;
-  let productService: ProductsService;
+  let productsService: ProductsService;
   let findOne: jest.Mock;
 
   const mockCategories: Category[] = [
@@ -49,11 +50,18 @@ describe('CategoriesService', () => {
             count: jest.fn().mockResolvedValue(mockCategories.length),
           },
         },
+        {
+          provide: getRepositoryToken(Cart),
+          useValue: {
+            save: jest.fn().mockResolvedValue([]),
+            count: jest.fn().mockResolvedValue(0),
+          },
+        },
       ],
     }).compile();
 
     service = module.get<CategoriesService>(CategoriesService);
-    productService = module.get<ProductsService>(ProductsService);
+    productsService = module.get<ProductsService>(ProductsService);
   });
 
   describe('when creating category', () => {
@@ -148,8 +156,8 @@ describe('CategoriesService', () => {
     describe('that exists and not assigned to any product', () => {
       it('should return removed object', async () => {
         jest
-            .spyOn(productService, 'getByCategoryId')
-            .mockImplementation(() => Promise.resolve(undefined));
+          .spyOn(productsService, 'getAllByCategoryId')
+          .mockImplementation(() => Promise.resolve([]));
 
         const result = await service.remove('1');
         expect(typeof result).toEqual('object');
@@ -158,7 +166,23 @@ describe('CategoriesService', () => {
 
     describe('that exists and assigned to a product', () => {
       it('should throw an error', async () => {
-        await (expect(service.remove('1')).rejects.toThrowError());
+        const productList: Product[] = [
+          {
+            id: 'a85bb6d7-a81b-40d6-915d-2e86cbf94a20',
+            name: 'Apple',
+            description: 'Pink lady apple',
+            categoryId: 'fd829276-b918-400c-a56d-e8fff4ee607f',
+            sellingPrice: 200,
+            stockLevel: 100,
+            expirationDate: new Date(),
+            category: null,
+          },
+        ];
+
+        jest
+          .spyOn(productsService, 'getAllByCategoryId')
+          .mockImplementation(() => Promise.resolve(productList));
+        await expect(service.remove('1')).rejects.toThrowError();
       });
     });
 

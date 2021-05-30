@@ -14,7 +14,7 @@ export class UsersService {
   /**
    * @param id
    */
-  async get(id: number) {
+  async get(id: string) {
     return this.userRepository.findOne(id);
   }
 }

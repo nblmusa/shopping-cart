@@ -52,11 +52,7 @@ $ ./scripts/populate-db.sh
 
 #### TEST
 ```bash
-# unit tests
 $ docker exec -it shopping-cart-api yarn test
-
-# test coverage
-$ docker exec -it shopping-cart-api yarn test:cov
 ```
 
 #### SWAGGER

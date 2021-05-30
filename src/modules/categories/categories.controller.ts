@@ -10,7 +10,12 @@ import {
   ValidationPipe,
   UseGuards,
 } from '@nestjs/common';
-import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
+import {
+  ApiBearerAuth,
+  ApiOperation,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 import { CategoriesService } from './categories.service';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
@@ -32,6 +37,7 @@ export class CategoriesController {
   @ApiBearerAuth()
   @Roles('admin')
   @UseGuards(JwtAuthGuard, RolesGuard)
+  @ApiOperation({ summary: 'Create category' })
   @ApiResponse({ status: 201, description: 'Category Created' })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
@@ -47,6 +53,7 @@ export class CategoriesController {
    * Get the list of all categories
    */
   @Get()
+  @ApiOperation({ summary: 'Get all categories' })
   @ApiResponse({ status: 200, description: 'Successful Response' })
   async findAll(): Promise<{ totalCount: number; items: Category[] }> {
     return await this.categoriesService.findAll();
@@ -57,6 +64,7 @@ export class CategoriesController {
    * @param id
    */
   @Get(':id')
+  @ApiOperation({ summary: 'Get a specific category' })
   @ApiResponse({ status: 200, description: 'Successful Response' })
   @ApiResponse({ status: 404, description: 'Category Not Found' })
   async findOne(@Param('id') id: string): Promise<Category> {
@@ -72,6 +80,7 @@ export class CategoriesController {
   @ApiBearerAuth()
   @Roles('admin')
   @UseGuards(JwtAuthGuard, RolesGuard)
+  @ApiOperation({ summary: 'Update a specific category' })
   @ApiResponse({ status: 200, description: 'Successful Response' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   @ApiResponse({ status: 404, description: 'Category Not Found' })
@@ -92,6 +101,7 @@ export class CategoriesController {
   @ApiBearerAuth()
   @Roles('admin')
   @UseGuards(JwtAuthGuard, RolesGuard)
+  @ApiOperation({ summary: 'Remove a category' })
   @ApiResponse({ status: 200, description: 'Successful Response' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   @ApiResponse({ status: 404, description: 'Category Not Found' })

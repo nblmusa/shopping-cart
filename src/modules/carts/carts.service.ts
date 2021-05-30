@@ -6,7 +6,7 @@ import {
 import { CreateCartDto } from './dto/create-cart.dto';
 import { UpdateCartDto } from './dto/update-cart.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import {DeleteResult, Repository} from 'typeorm';
+import { DeleteResult, Repository } from 'typeorm';
 import { Cart } from './entities/cart.entity';
 import { ProductsService } from '../products/products.service';
 import { Product } from '../products/entities/product.entity';
@@ -52,7 +52,9 @@ export class CartsService {
    * Retrieve all items in user's cart
    * @param userId
    */
-  async findAllItems(userId: string,): Promise<{ totalCount: number; items: Cart[]; subTotal: number }> {
+  async findAllItems(
+    userId: string,
+  ): Promise<{ totalCount: number; items: Cart[]; subTotal: number }> {
     const cartItems = await this.cartsRepository.find({
       where: { userId },
       relations: ['product'],
@@ -71,7 +73,9 @@ export class CartsService {
    */
   calculateSubTotal(items: Cart[]): number {
     let subTotal = 0;
-    items.map((item: Cart) => (subTotal += item.product.sellingPrice * item.quantity));
+    items.map(
+      (item: Cart) => (subTotal += item.product.sellingPrice * item.quantity),
+    );
     return subTotal;
   }
 
@@ -115,8 +119,10 @@ export class CartsService {
    * @param {string} userId
    */
   async removeItem(productId: string, userId: string): Promise<Cart> {
-
-    const cartItem: Cart = await this.cartsRepository.findOne({ productId, userId })
+    const cartItem: Cart = await this.cartsRepository.findOne({
+      productId,
+      userId,
+    });
     if (!cartItem) {
       throw new NotFoundException('Product is not in cart.');
     }
