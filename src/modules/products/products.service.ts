@@ -18,7 +18,7 @@ export class ProductsService {
     private productsRepository: Repository<Product>,
     @InjectRepository(Category)
     private categoriesRepository: Repository<Category>,
-    @InjectRepository(Category)
+    @InjectRepository(Cart)
     private cartsRepository: Repository<Cart>,
   ) {}
 
