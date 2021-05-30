@@ -6,6 +6,9 @@ A basic RESTful shopping cart API
 
 - Simple REST API built in NestJS and MySQL.
 
+
+![Alt text](files/scope-diagram.jpg?raw=true)
+
 #### ASSUMPTIONS
 
 - This project assumes that users are already registered, stored in the database and logged in. There are 2 users available, an admin and a customer.
@@ -93,4 +96,7 @@ Postman collection can be found in the postman directory of this repo.
 
 
 ### Future Road map
-- 
+- Implement microservice architecture (for example: Users microservice)
+- Allow guest user to add to cart
+- Implement runtime caching for models such as guest cart
+- Add logs server

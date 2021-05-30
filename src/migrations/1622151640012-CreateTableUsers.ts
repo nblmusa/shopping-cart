@@ -11,7 +11,7 @@ export class CreateTableUsers1622151640012 implements MigrationInterface {
             role varchar(255) NOT NULL,
             password varchar(255) NOT NULL,
             PRIMARY KEY (id),
-            INDEX (email)
+            INDEX (email, role)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;`,
     );
   }

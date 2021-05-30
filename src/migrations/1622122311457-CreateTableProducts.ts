@@ -4,7 +4,7 @@ export class CreateTableProducts1622122311457 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query(
       `CREATE TABLE products (
-                id varchar(255) NOT NULL,
+                id char(36) NOT NULL,
                 name varchar(255) NOT NULL,
                 description varchar(255) NOT NULL,
                 category_id varchar(255) NOT NULL,
@@ -14,7 +14,8 @@ export class CreateTableProducts1622122311457 implements MigrationInterface {
                 created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
                 updated_at timestamp NULL,
                 PRIMARY KEY (id),
-                CONSTRAINT fk_category_id FOREIGN KEY (category_id) REFERENCES categories(id)
+                CONSTRAINT fk_category_id FOREIGN KEY (category_id) REFERENCES categories(id),
+                INDEX (category_id)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;`,
     );
   }

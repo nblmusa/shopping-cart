@@ -12,7 +12,8 @@ export class CreateTableCarts1622202869664 implements MigrationInterface {
                 updated_at timestamp NULL,
                 PRIMARY KEY (id),
                 CONSTRAINT fk_product_id FOREIGN KEY (product_id) REFERENCES products(id),
-                CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users(id)
+                CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users(id),
+                INDEX (product_id, user_id)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;`,
     );
   }
