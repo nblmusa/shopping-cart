@@ -33,3 +33,11 @@ export class User {
     return self;
   }
 }
+
+
+export class UserFillableFields {
+  email: string;
+  firstName: string;
+  lastName: string;
+  password: string;
+}

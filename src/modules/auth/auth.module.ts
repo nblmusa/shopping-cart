@@ -5,6 +5,7 @@ import { UsersModule } from '../users/users.module';
 import { ConfigModule, ConfigService } from '../config';
 import { JwtStrategy } from './jwt.strategy';
 import { AuthService } from './auth.service';
+import {AuthController} from "./auth.controller";
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { AuthService } from './auth.service';
       inject: [ConfigService],
     }),
   ],
+  controllers: [AuthController],
   providers: [AuthService, JwtStrategy],
   exports: [PassportModule.register({ defaultStrategy: 'jwt' }), AuthService],
 })

@@ -9,22 +9,6 @@ A basic RESTful shopping cart API
 
 ![Alt text](files/scope-diagram.jpg?raw=true)
 
-#### ASSUMPTIONS
-
-- This project assumes that users are already registered and stored in the database. There are 2 users available, an admin and a customer.
-The JWT can be found in the postman environtment files or the following tokens can be used as a bearer authentication:
-
-```bash
-# Admin:
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNhMmIxMmE0LTE1MDQtNGEyMC1iYTIxLWZhYjBmZjEzZjNmOCIsImlhdCI6MTYyMjM4OTYxMCwiZXhwIjoxNjUzOTI1NjEwfQ.W-MGyIdwdtzThbMhpGB4wzJ3iP8K_MVLprGln-qbCrc
-
-# Customer:
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRkMDlkYWY2LWYyNzYtNGQ0My1hNmE2LTNhZjg0NGIyOTZmZSIsImlhdCI6MTYyMjM4OTczMCwiZXhwIjoxNjUzOTI1NzMwfQ.Wfj1YmfVkZbOil-jt764juPl74C1wb0FC4zglqZPrhk
-```
-
-- Also, checking out cart and placing and order is not within the scope of this project.
-
-
 #### PREREQUISITES
 - Docker / Docker Compose
 
@@ -69,6 +53,13 @@ Postman collection can be found in the postman directory of this repo.
 
 #### API ROUTES
 
+### [Auth Routes](#category-routes)
+| Routes        | Description  | 
+|:------------- |:-------------|
+| [`POST /api/v1/auth/register`](#register-user)     | Create a new user |  
+| [`GET /api/v1/auth/login`](#login-user)    |Login user|   
+| [`GET /api/v1/auth/me`](#login-user)    |Get logged in user details|   
+
 ### [Product Category Routes](#category-routes)
 | Routes        | Description  | 
 |:------------- |:-------------|
@@ -98,7 +89,6 @@ Postman collection can be found in the postman directory of this repo.
 
 
 ### Future Road map
-- Implement microservice architecture (for example: Users microservice)
 - Allow guest user to add to cart
 - Implement runtime caching for models such as guest cart
 - Add logs server
